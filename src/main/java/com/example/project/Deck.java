@@ -6,7 +6,7 @@ public class Deck{
     private ArrayList<Card> cards;
 
     public Deck(){
-        cards = new ArrayList<>();
+        cards = new ArrayList<Card>();
         initializeDeck();
         shuffleDeck();
     }
@@ -16,22 +16,30 @@ public class Deck{
     }
 
     public  void initializeDeck(){ //hint.. use the utility class
-        
+        for(int i = 0; i < Utility.getSuits().length; i++){
+            for(int j = 0; j < Utility.getRanks().length; j++){
+                Card card = new Card(Utility.getSuits()[i], Utility.getRanks()[j]);
+                cards.add(card);
+            }
+        }
     }
 
     public  void shuffleDeck(){ //You can use the Collections library or another method. You do not have to create your own shuffle algorithm
-        
+        Collections.shuffle(cards);
     }
 
     public  Card drawCard(){
-       return new Card("","");
+        Card card = new Card("", "");
+        if(!isEmpty()){
+            card = cards.remove(0);
+        } else {
+            return null;
+        }
+       return card;
     }
 
     public  boolean isEmpty(){
         return cards.isEmpty();
     }
-
-   
-
-
+    
 }

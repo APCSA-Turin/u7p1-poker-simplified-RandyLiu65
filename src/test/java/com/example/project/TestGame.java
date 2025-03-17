@@ -33,7 +33,7 @@ public class TestGame {
     public void testHighCard_Player2Wins() {
         Player player1 = new Player();
         Player player2 = new Player();
-        
+        // 
         player1.addCard(new Card("7", "♠"));
         player1.addCard(new Card("8", "♠"));
         
